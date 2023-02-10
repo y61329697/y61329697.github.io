@@ -1,0 +1,1518 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="神经网络入门基础, Hexo">
+    <meta name="description" content="关于神经网络的基础知识">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>神经网络入门基础 | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">神经网络入门基础</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Typora/">
+                                <span class="chip bg-color">Typora</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">神经网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-category">
+                                神经网络
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-02-10
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.9k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="神经网络入门基础"><a href="#神经网络入门基础" class="headerlink" title="神经网络入门基础"></a>神经网络入门基础</h1><p>​		神经网络中更新权值的的最成功算法: 误差逆传播（error BackPropagation，简称BP）算法。BP学习算法通常用在最为广泛使用的多层前馈神经网络中。</p>
+<p>基本流程：</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230208035454986.png" alt="image-20230208035454986"></p>
+<h3 id="1-常见的神经网络模型"><a href="#1-常见的神经网络模型" class="headerlink" title="1.常见的神经网络模型"></a>1.常见的神经网络模型</h3><h4 id="1-1-受限玻尔兹曼机（RBM）"><a href="#1-1-受限玻尔兹曼机（RBM）" class="headerlink" title="1.1 受限玻尔兹曼机（RBM）"></a>1.1 受限玻尔兹曼机（RBM）</h4><p>​		<strong>神经网络中有一类模型是为网络状态定义一个“能量”，能量最小化时网络达到理想状态，而网络的训练就是在最小化这个能量函数。</strong>Boltzmann（玻尔兹曼）机就是基于能量的模型，<strong>其神经元分为两层：显层和隐层。显层用于表示数据的输入和输出，隐层则被理解为数据的内在表达。</strong>Boltzmann机的神经元都是布尔型的，即只能取0、1值。标准的Boltzmann机是全连接的，也就是说各层内的神经元都是相互连接的，因此计算复杂度很高，而且难以用来解决实际问题。因此，我们经常使用一种特殊的Boltzmann机——受限玻尔兹曼机（Restricted Boltzmann Mechine，<strong>简称RBM</strong>），它<strong>层内无连接，层间有连接</strong>，可以看做是一个二部图。下图为Boltzmann机和RBM的结构示意图：</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230208033833257.png" alt="image-20230208033833257"></p>
+<h4 id="1-2-RBF网络"><a href="#1-2-RBF网络" class="headerlink" title="1.2 RBF网络"></a>1.2 RBF网络</h4><p>​		RBF（Radial Basis Function）径向基函数网络是一种<strong>单隐层</strong>前馈神经网络，它使用径向基函数作为隐层神经元激活函数，而<strong>输出层则是对隐层神经元输出的线性组合</strong>。下图为一个RBF神经网络示意图：</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230208034403677.png" alt="image-20230208034403677"></p>
+<h4 id="1-3-递归神经网络以及Elman网络"><a href="#1-3-递归神经网络以及Elman网络" class="headerlink" title="1.3 递归神经网络以及Elman网络"></a>1.3 递归神经网络以及Elman网络</h4><p>​		与前馈神经网络不同，<strong>递归神经网络（Recurrent Neural Networks，简称RNN）</strong>允许网络中出现环形结构，从而可以让一些神经元的输出反馈回来作为输入信号，这样的结构与信息反馈过程，使得网络在t时刻的输出状态不仅与t时刻的输入有关，还与t−1时刻的网络状态有关，从而能处理与时间有关的动态变化。</p>
+<p>​		Elman网络是最常用的递归神经网络之一，其结构如下图所示：</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230208034646081.png" alt="image-20230208034646081"></p>
+<p>​		RNN一般的训练算法采用推广的BP算法。值得一提的是，<strong>RNN在（t+1）时刻网络的结果O(t+1)是该时刻输入和所有历史共同作用的结果</strong>，这样就达到了对时间序列建模的目的。因此，从某种意义上来讲，RNN被视为是时间深度上的深度学习也未尝不对。</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230208034838269.png" alt="image-20230208034838269"></p>
+<p>​		<strong>RNN在（t+1）时刻网络的结果O(t+1)是该时刻输入和所有历史共同作用的结果，</strong>这么讲其实也不是很准确，因为“梯度发散”同样也会发生在时间轴上，也就是说对于t时刻来说，<strong>它产生的梯度在时间轴上向历史传播几层之后就消失了，根本无法影响太遥远的过去</strong>。因此，“所有的历史”只是理想的情况。在实际中，这种影响也就只能维持若干个时间戳而已。换句话说，后面时间步的错误信号，往往并不能回到足够远的过去，像更早的时间步一样，去影响网络，这使它很难以学习远距离的影响。</p>
+<p>　　为了解决上述时间轴上的梯度发散，<strong>机器学习领域发展出了长短时记忆单元（Long-Short Term Memory，简称LSTM）</strong>，通过门的开关实现时间上的记忆功能，并防止梯度发散。其实除了学习历史信息，RNN和LSTM还可以被设计成为双向结构，即双向RNN、双向LSTM，同时利用历史和未来的信息。</p>
+<h3 id="2-深度学习"><a href="#2-深度学习" class="headerlink" title="2.深度学习"></a>2.深度学习</h3><p>​		深度学习指的是深度神经网络模型，一般<strong>指网络层数在三层或者三层以上的神经网络结构</strong>。</p>
+<p>　　理论上而言，参数越多的模型复杂度越高，“容量”也就越大，也就意味着它能完成更复杂的学习任务。就像前面多层感知机带给我们的启示一样，<strong>神经网络的层数直接决定了它对现实的刻画能力</strong>。但是在一般情况下，复杂模型的训练效率低，易陷入过拟合，因此难以受到人们的青睐。具体来讲就是，<strong>随着神经网络层数的加深，优化函数越来越容易陷入局部最优解（即过拟合，在训练样本上有很好的拟合效果，但是在测试集上效果很差）</strong>。同时，不可忽略的一个问题是随着网络层数增加，“梯度消失”（或者说是梯度发散diverge）现象更加严重。我们经常使用sigmoid函数作为隐含层的功能神经元，对于幅度为1的信号，在BP反向传播梯度时，每传递一层，梯度衰减为原来的0.25。层数一多，梯度指数衰减后低层基本接收不到有效的训练信号。</p>
+<p>​		为了解决深层神经网络的训练问题，一种有效的手段是采取<strong>无监督逐层训练</strong>（unsupervised layer-wise training），其基本思想是<strong>每次训练一层隐节点，训练时将上一层隐节点的输出作为输入，而本层隐节点的输出作为下一层隐节点的输入</strong>，这被称之为“预训练”（pre-training）；在预训练完成后，再对整个网络进行“微调”（fine-tunning）训练。比如Hinton在深度信念网络（Deep Belief Networks，简称DBN）中，每层都是一个RBM，即整个网络可以被视为是若干个RBM堆叠而成。在使用无监督训练时，首先训练第一层，这是关于训练样本的RBM模型，可按标准的RBM进行训练；然后，将第一层预训练号的隐节点视为第二层的输入节点，对第二层进行预训练；… 各层预训练完成后，再利用BP算法对整个网络进行训练。</p>
+<p>​		事实上，“预训练+微调”的训练方式可被视为是将大量参数分组，对每组先找到局部看起来较好的设置，然后再基于这些局部较优的结果联合起来进行全局寻优。这样就在利用了模型大量参数所提供的自由度的同时，有效地节省了训练开销。</p>
+<p>​		另一种节省训练开销的做法是进行“权共享”（weight sharing），即让一组神经元使用相同的连接权，这个策略在卷积神经网络（Convolutional Neural Networks，简称CNN）中发挥了重要作用。下图为一个CNN网络示意图：</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230208035257817.png" alt="image-20230208035257817"></p>
+<p>​		CNN可以用BP算法进行训练，但是在训练中，无论是卷积层还是采样层，其每组神经元（即上图中的每一个“平面”）都是用相同的连接权，从而大幅减少了需要训练的参数数目。</p>
+<h3 id="3-反向传播"><a href="#3-反向传播" class="headerlink" title="3.反向传播"></a>3.反向传播</h3><p>参考链接（<strong>精品文章</strong>）：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/charlotte77/p/5629865.html">https://www.cnblogs.com/charlotte77/p/5629865.html</a></p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230208044017692.png" alt="image-20230208044017692"></p>
+<p>​		这是典型的三层神经网络的基本构成，Layer L1是输入层，Layer L2是隐含层，Layer L3是隐含层，我们现在手里有一堆数据{x1,x2,x3,…,xn},输出也是一堆数据{y1,y2,y3,…,yn},现在要他们在隐含层做某种变换，让你把数据灌进去后得到你期望的输出。如果你希望你的输出和原始输入一样，<strong>那么就是最常见的自编码模型（Auto-Encoder）</strong>。可能有人会问，为什么要输入输出都一样呢？有什么用啊？其实应用挺广的，在图像识别，文本分类等等都会用到，我会专门再写一篇Auto-Encoder的文章来说明，包括一些变种之类的。如果你的输出和原始输入不一样，那么就是很常见的人工神经网络了，相当于让原始数据通过一个映射来得到我们想要的输出数据，也就是我们今天要讲的话题。</p>
+<p>​		第一层是输入层，包含两个神经元i1，i2，和截距项b1；第二层是隐含层，包含两个神经元h1,h2和截距项b2，第三层是输出o1,o2，每条线上标的wi是层与层之间连接的权重，激活函数我们默认为sigmoid函数。</p>
+<p>　　现在对他们赋上初值，如下图（一个网络的初始状态）：</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230208045255958.png" alt="image-20230208045255958"></p>
+<p>其中，输入数据  i1=0.05，i2=0.10;</p>
+<p>　　　输出数据 o1=0.01,o2=0.99;</p>
+<p>　　　初始权重  w1=0.15,w2=0.20,w3=0.25,w4=0.30;</p>
+<p>　　　　　　　  w5=0.40,w6=0.45,w7=0.50,w8=0.55 </p>
+<p><strong>目标</strong>：给出输入数据i1,i2(0.05和0.10)，使输出尽可能与原始输出o1,o2(0.01和0.99)接近。</p>
+<h4 id="3-1-前向传播"><a href="#3-1-前向传播" class="headerlink" title="3.1 前向传播"></a>3.1 前向传播</h4><p>​		简单来讲，就是线性运算和激活函数（sigmod）计算出输出结果output。</p>
+<h4 id="3-2-反向传播"><a href="#3-2-反向传播" class="headerlink" title="3.2 反向传播"></a>3.2 反向传播</h4><p>​		反向传播其实就是梯度下降法，自变量是所有的神经网络中的权值参数。例如上图中的w1-w8。相当于存在一个函数是误差函数f（w1,w2…,w8）,所以求出每一个自变量的导数，然后使得总误差最小，梯度的反方向是下降最快的方向。</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230208094040758.png" alt="image-20230208094040758"></p>
+<p>​		需要注意的是，神经元分为两个部分一个是网络的输入部分，一个是网络的激活函数部分。如下图所示，分别是neto1（直接输入的部分），还有经过激活函数的部分outo1。</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230208095924806.png" alt="image-20230208095924806"></p>
+<p>​		同理，也要更新w1-w4，这个求导会更加复杂一点，因为层数更多了，然后更新w1，不断迭代优化参数。</p>
+<h4 id="3-3-下降分析"><a href="#3-3-下降分析" class="headerlink" title="3.3 下降分析"></a>3.3 下降分析</h4><p>​		为什么在给定某些参数的时候，神经网络的损失函数不会下降。按理来讲，只要梯度足够小，是可以下降的。可以拟合任意的输入和输出，讲的特别好，只是我把输出看错了。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#coding:utf-8</span>
+<span class="token keyword">import</span> random
+<span class="token keyword">import</span> math
+
+<span class="token comment">#</span>
+<span class="token comment">#   参数解释：</span>
+<span class="token comment">#   "pd_" ：偏导的前缀</span>
+<span class="token comment">#   "d_" ：导数的前缀</span>
+<span class="token comment">#   "w_ho" ：隐含层到输出层的权重系数索引</span>
+<span class="token comment">#   "w_ih" ：输入层到隐含层的权重系数的索引</span>
+
+
+<span class="token comment">#   这是一个只有隐藏层和输出层的一个网络</span>
+<span class="token comment">#   为了确定反向传播，首先需要确定每一个w权值直接影响的神经元是哪一个</span>
+<span class="token comment">#   其实通过这个神经网络的图像就可以就可以推导出来导数的格式，就是多元函数求导的一种格式</span>
+<span class="token comment">#   这么看的话其实就和好理解如何求导了，需要用到那一个权值，这个更新是一轮全部，在更新过程中不改变w1-w8</span>
+<span class="token comment">#   问题的关键是要弄明白哪些数据是可以复用的</span>
+
+<span class="token keyword">class</span> <span class="token class-name">NeuralNetwork</span><span class="token punctuation">:</span>
+    LEARNING_RATE <span class="token operator">=</span> <span class="token number">0.5</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> num_inputs<span class="token punctuation">,</span> num_hidden<span class="token punctuation">,</span> num_outputs<span class="token punctuation">,</span> hidden_layer_weights <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> hidden_layer_bias <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> output_layer_weights <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span> output_layer_bias <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>num_inputs <span class="token operator">=</span> num_inputs
+
+        self<span class="token punctuation">.</span>hidden_layer <span class="token operator">=</span> NeuronLayer<span class="token punctuation">(</span>num_hidden<span class="token punctuation">,</span> hidden_layer_bias<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>output_layer <span class="token operator">=</span> NeuronLayer<span class="token punctuation">(</span>num_outputs<span class="token punctuation">,</span> output_layer_bias<span class="token punctuation">)</span>
+
+    <span class="token comment"># 初始化网络的权值</span>
+        self<span class="token punctuation">.</span>init_weights_from_inputs_to_hidden_layer_neurons<span class="token punctuation">(</span>hidden_layer_weights<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>init_weights_from_hidden_layer_neurons_to_output_layer_neurons<span class="token punctuation">(</span>output_layer_weights<span class="token punctuation">)</span>
+    <span class="token comment"># python中的list无需声明可以添加任意类型的元素</span>
+    <span class="token comment"># 权值其实是一个二维的矩阵，第一维是当前层神经元的个数，第二维是上一层神经元的个数</span>
+    <span class="token keyword">def</span> <span class="token function">init_weights_from_inputs_to_hidden_layer_neurons</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> hidden_layer_weights<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        weight_num <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> h <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>num_inputs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> <span class="token keyword">not</span> hidden_layer_weights<span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>h<span class="token punctuation">]</span><span class="token punctuation">.</span>weights<span class="token punctuation">.</span>append<span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>h<span class="token punctuation">]</span><span class="token punctuation">.</span>weights<span class="token punctuation">.</span>append<span class="token punctuation">(</span>hidden_layer_weights<span class="token punctuation">[</span>weight_num<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                weight_num <span class="token operator">+=</span> <span class="token number">1</span>
+
+    <span class="token keyword">def</span> <span class="token function">init_weights_from_hidden_layer_neurons_to_output_layer_neurons</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> output_layer_weights<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        weight_num <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> o <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> h <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> <span class="token keyword">not</span> output_layer_weights<span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>o<span class="token punctuation">]</span><span class="token punctuation">.</span>weights<span class="token punctuation">.</span>append<span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>o<span class="token punctuation">]</span><span class="token punctuation">.</span>weights<span class="token punctuation">.</span>append<span class="token punctuation">(</span>output_layer_weights<span class="token punctuation">[</span>weight_num<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                weight_num <span class="token operator">+=</span> <span class="token number">1</span>
+
+    <span class="token keyword">def</span> <span class="token function">inspect</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'------'</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'* Inputs: {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>num_inputs<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'------'</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hidden Layer'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>inspect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'------'</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'* Output Layer'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>inspect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'------'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 前向传播</span>
+    <span class="token keyword">def</span> <span class="token function">feed_forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inputs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        hidden_layer_outputs <span class="token operator">=</span> self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>feed_forward<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>feed_forward<span class="token punctuation">(</span>hidden_layer_outputs<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">train</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> training_inputs<span class="token punctuation">,</span> training_outputs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>feed_forward<span class="token punctuation">(</span>training_inputs<span class="token punctuation">)</span>
+
+        <span class="token comment"># 1. 输出神经元的值</span>
+        pd_errors_wrt_output_neuron_total_net_input <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> o <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+            <span class="token comment"># ∂E/∂zⱼ</span>
+            pd_errors_wrt_output_neuron_total_net_input<span class="token punctuation">[</span>o<span class="token punctuation">]</span> <span class="token operator">=</span> self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>o<span class="token punctuation">]</span><span class="token punctuation">.</span>calculate_pd_error_wrt_total_net_input<span class="token punctuation">(</span>training_outputs<span class="token punctuation">[</span>o<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        <span class="token comment"># 2. 隐含层神经元的值</span>
+        pd_errors_wrt_hidden_neuron_total_net_input <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> h <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+            <span class="token comment"># dE/dyⱼ = Σ ∂E/∂zⱼ * ∂z/∂yⱼ = Σ ∂E/∂zⱼ * wᵢⱼ</span>
+            d_error_wrt_hidden_neuron_output <span class="token operator">=</span> <span class="token number">0</span>
+            <span class="token keyword">for</span> o <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                d_error_wrt_hidden_neuron_output <span class="token operator">+=</span> pd_errors_wrt_output_neuron_total_net_input<span class="token punctuation">[</span>o<span class="token punctuation">]</span> <span class="token operator">*</span> self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>o<span class="token punctuation">]</span><span class="token punctuation">.</span>weights<span class="token punctuation">[</span>h<span class="token punctuation">]</span>
+
+            <span class="token comment"># ∂E/∂zⱼ = dE/dyⱼ * ∂zⱼ/∂</span>
+            pd_errors_wrt_hidden_neuron_total_net_input<span class="token punctuation">[</span>h<span class="token punctuation">]</span> <span class="token operator">=</span> d_error_wrt_hidden_neuron_output <span class="token operator">*</span> self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>h<span class="token punctuation">]</span><span class="token punctuation">.</span>calculate_pd_total_net_input_wrt_input<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment"># 3. 更新输出层权重系数</span>
+        <span class="token keyword">for</span> o <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> w_ho <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>o<span class="token punctuation">]</span><span class="token punctuation">.</span>weights<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+                <span class="token comment"># ∂Eⱼ/∂wᵢⱼ = ∂E/∂zⱼ * ∂zⱼ/∂wᵢⱼ</span>
+                pd_error_wrt_weight <span class="token operator">=</span> pd_errors_wrt_output_neuron_total_net_input<span class="token punctuation">[</span>o<span class="token punctuation">]</span> <span class="token operator">*</span> self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>o<span class="token punctuation">]</span><span class="token punctuation">.</span>calculate_pd_total_net_input_wrt_weight<span class="token punctuation">(</span>w_ho<span class="token punctuation">)</span>
+
+                <span class="token comment"># Δw = α * ∂Eⱼ/∂wᵢ</span>
+                self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>o<span class="token punctuation">]</span><span class="token punctuation">.</span>weights<span class="token punctuation">[</span>w_ho<span class="token punctuation">]</span> <span class="token operator">-=</span> self<span class="token punctuation">.</span>LEARNING_RATE <span class="token operator">*</span> pd_error_wrt_weight
+
+        <span class="token comment"># 4. 更新隐含层的权重系数</span>
+        <span class="token keyword">for</span> h <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> w_ih <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>h<span class="token punctuation">]</span><span class="token punctuation">.</span>weights<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+                <span class="token comment"># ∂Eⱼ/∂wᵢ = ∂E/∂zⱼ * ∂zⱼ/∂wᵢ</span>
+                pd_error_wrt_weight <span class="token operator">=</span> pd_errors_wrt_hidden_neuron_total_net_input<span class="token punctuation">[</span>h<span class="token punctuation">]</span> <span class="token operator">*</span> self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>h<span class="token punctuation">]</span><span class="token punctuation">.</span>calculate_pd_total_net_input_wrt_weight<span class="token punctuation">(</span>w_ih<span class="token punctuation">)</span>
+
+                <span class="token comment"># Δw = α * ∂Eⱼ/∂wᵢ</span>
+                self<span class="token punctuation">.</span>hidden_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>h<span class="token punctuation">]</span><span class="token punctuation">.</span>weights<span class="token punctuation">[</span>w_ih<span class="token punctuation">]</span> <span class="token operator">-=</span> self<span class="token punctuation">.</span>LEARNING_RATE <span class="token operator">*</span> pd_error_wrt_weight
+
+    <span class="token keyword">def</span> <span class="token function">calculate_total_error</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> training_sets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        total_error <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> t <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>training_sets<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            training_inputs<span class="token punctuation">,</span> training_outputs <span class="token operator">=</span> training_sets<span class="token punctuation">[</span>t<span class="token punctuation">]</span>
+            self<span class="token punctuation">.</span>feed_forward<span class="token punctuation">(</span>training_inputs<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> o <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>training_outputs<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                total_error <span class="token operator">+=</span> self<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>o<span class="token punctuation">]</span><span class="token punctuation">.</span>calculate_error<span class="token punctuation">(</span>training_outputs<span class="token punctuation">[</span>o<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> total_error
+
+<span class="token keyword">class</span> <span class="token class-name">NeuronLayer</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> num_neurons<span class="token punctuation">,</span> bias<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        <span class="token comment"># 同一层的神经元共享一个截距项b</span>
+        self<span class="token punctuation">.</span>bias <span class="token operator">=</span> bias <span class="token keyword">if</span> bias <span class="token keyword">else</span> random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>neurons <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>num_neurons<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>neurons<span class="token punctuation">.</span>append<span class="token punctuation">(</span>Neuron<span class="token punctuation">(</span>self<span class="token punctuation">.</span>bias<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">inspect</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Neurons:'</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>neurons<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">' Neuron'</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> w <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">.</span>weights<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'  Weight:'</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>neurons<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">.</span>weights<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'  Bias:'</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>bias<span class="token punctuation">)</span>
+    <span class="token comment"># 前向传播，生成一个输出矩阵，前向传播依次遍历一层中的每一个神经元，把输入放到每一个神经元中。</span>
+    <span class="token keyword">def</span> <span class="token function">feed_forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inputs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        outputs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> neuron <span class="token keyword">in</span> self<span class="token punctuation">.</span>neurons<span class="token punctuation">:</span>
+            outputs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>neuron<span class="token punctuation">.</span>calculate_output<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> outputs
+
+    <span class="token keyword">def</span> <span class="token function">get_outputs</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        outputs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> neuron <span class="token keyword">in</span> self<span class="token punctuation">.</span>neurons<span class="token punctuation">:</span>
+            outputs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>neuron<span class="token punctuation">.</span>output<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> outputs
+
+<span class="token comment"># 一个具体的神经元</span>
+<span class="token keyword">class</span> <span class="token class-name">Neuron</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> bias<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>bias <span class="token operator">=</span> bias
+        self<span class="token punctuation">.</span>weights <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token comment"># 每一个神经元对应于一个输入矩阵，对应于一个权值矩阵</span>
+    <span class="token keyword">def</span> <span class="token function">calculate_output</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inputs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>inputs <span class="token operator">=</span> inputs
+        self<span class="token punctuation">.</span>output <span class="token operator">=</span> self<span class="token punctuation">.</span>squash<span class="token punctuation">(</span>self<span class="token punctuation">.</span>calculate_total_net_input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>output
+
+    <span class="token keyword">def</span> <span class="token function">calculate_total_net_input</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        total <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>inputs<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            total <span class="token operator">+=</span> self<span class="token punctuation">.</span>inputs<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> self<span class="token punctuation">.</span>weights<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> total <span class="token operator">+</span> self<span class="token punctuation">.</span>bias
+
+    <span class="token comment"># 激活函数sigmoid</span>
+    <span class="token keyword">def</span> <span class="token function">squash</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> total_net_input<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> math<span class="token punctuation">.</span>exp<span class="token punctuation">(</span><span class="token operator">-</span>total_net_input<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 这个可以封装为一个模块</span>
+    <span class="token keyword">def</span> <span class="token function">calculate_pd_error_wrt_total_net_input</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> target_output<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>calculate_pd_error_wrt_output<span class="token punctuation">(</span>target_output<span class="token punctuation">)</span> <span class="token operator">*</span> self<span class="token punctuation">.</span>calculate_pd_total_net_input_wrt_input<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 每一个神经元的误差是由平方差公式计算的</span>
+    <span class="token keyword">def</span> <span class="token function">calculate_error</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> target_output<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0.5</span> <span class="token operator">*</span> <span class="token punctuation">(</span>target_output <span class="token operator">-</span> self<span class="token punctuation">.</span>output<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">calculate_pd_error_wrt_output</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> target_output<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token punctuation">(</span>target_output <span class="token operator">-</span> self<span class="token punctuation">.</span>output<span class="token punctuation">)</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">calculate_pd_total_net_input_wrt_input</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>output <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> self<span class="token punctuation">.</span>output<span class="token punctuation">)</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">calculate_pd_total_net_input_wrt_weight</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>inputs<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
+
+
+<span class="token comment"># 文中的例子:</span>
+
+<span class="token comment"># nn = NeuralNetwork(2, 2, 2, hidden_layer_weights=[0.15, 0.2, 0.25, 0.3], hidden_layer_bias=0.35, output_layer_weights=[0.4, 0.45, 0.5, 0.55], output_layer_bias=0.6)</span>
+<span class="token comment"># nn.inspect()</span>
+<span class="token comment"># for i in range(10000):</span>
+<span class="token comment">#    nn.train([0.05, 0.1], [0.9, 0.9])</span>
+<span class="token comment">#    print(i, round(nn.calculate_total_error([[[0.05, 0.1], [0.9, 0.9]]]), 9))</span>
+
+<span class="token comment"># python的缩进</span>
+training_sets <span class="token operator">=</span> <span class="token punctuation">[</span>
+     <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+     <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+     <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+     <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+
+nn <span class="token operator">=</span> NeuralNetwork<span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>training_sets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>training_sets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+nn<span class="token punctuation">.</span>inspect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">50000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+     training_inputs<span class="token punctuation">,</span> training_outputs <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>training_sets<span class="token punctuation">)</span>
+     nn<span class="token punctuation">.</span>train<span class="token punctuation">(</span>training_inputs<span class="token punctuation">,</span> training_outputs<span class="token punctuation">)</span>
+     <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> nn<span class="token punctuation">.</span>calculate_total_error<span class="token punctuation">(</span>training_sets<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 拟合一个异或的神经网络</span>
+nn<span class="token punctuation">.</span>feed_forward<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>output_layer<span class="token punctuation">.</span>get_outputs<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-卷积神经网络"><a href="#4-卷积神经网络" class="headerlink" title="4.卷积神经网络"></a>4.卷积神经网络</h3><p><strong>三个基本层：</strong></p>
+<h4 id="4-1-卷积层"><a href="#4-1-卷积层" class="headerlink" title="4.1 卷积层"></a>4.1 卷积层</h4><p>​		上文提到我们用<strong>传统的三层神经网络需要大量的参数</strong>，原因在于每个神经元都和相邻层的神经元相连接，但是思考一下，这种连接方式是必须的吗？全连接层的方式对于图像数据来说似乎显得不这么友好，因为图像本身具有“二维空间特征”，通俗点说就是局部特性。譬如我们看一张猫的图片，可能看到猫的眼镜或者嘴巴就知道这是张猫片，而不需要说每个部分都看完了才知道，啊，原来这个是猫啊。<strong>所以如果我们可以用某种方式对一张图片的某个典型特征识别</strong>，那么这张图片的类别也就知道了。这个时候就产生了卷积的概念。举个例子，现在有一个4*4的图像，我们设计两个卷积核，看看运用卷积核后图片会变成什么样。</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209130200320.png" alt="image-20230209130200320"></p>
+<p>​		由上图可以看到，原始图片是一张灰度图片,每个位置表示的是像素值，0表示白色，1表示黑色，（0，1）区间的数值表示灰色。对于这个4 * 4的图像，我们采用两个2 * 2的卷积核来计算。设定步长为1，即每次以2 * 2的固定窗口往右滑动一个单位。以第一个卷积核filter1为例，计算过程如下：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">1 feature_map1(1,1) = 1*1 + 0*(-1) + 1*1 + 1*(-1) = 1 
+2 feature_map1(1,2) = 0*1 + 1*(-1) + 1*1 + 1*(-1) = -1 
+3 ``` 
+4 feature_map1(3,3) = 1*1 + 0*(-1) + 1*1 + 0*(-1) = 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​		feature_map代表经过卷积后的图像，<strong>feature_map尺寸计算公式：[ (原图片尺寸 -卷积核尺寸)/ 步长 ] + 1</strong>。</p>
+<p>​		最顶层调用的函数是这样的，如下图所示，需要一些指定的参数：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">conv_pool_1 <span class="token operator">=</span> paddle<span class="token punctuation">.</span>networks<span class="token punctuation">.</span>simple_img_conv_pool<span class="token punctuation">(</span>
+        <span class="token builtin">input</span><span class="token operator">=</span>img<span class="token punctuation">,</span>
+        filter_size<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
+        num_filters<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
+        num_channel<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
+        pool_stride<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
+        act<span class="token operator">=</span>paddle<span class="token punctuation">.</span>activation<span class="token punctuation">.</span>Relu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​		这是函数simple_img_conv_pool的定义：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">simple_img_conv_pool</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">,</span>
+                         num_filters<span class="token punctuation">,</span>
+                         filter_size<span class="token punctuation">,</span>
+                         pool_size<span class="token punctuation">,</span>
+                         pool_stride<span class="token punctuation">,</span>
+                         act<span class="token punctuation">,</span>
+                         pool_type<span class="token operator">=</span><span class="token string">'max'</span><span class="token punctuation">,</span>
+                         main_program<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+                         startup_program<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    conv_out <span class="token operator">=</span> layers<span class="token punctuation">.</span>conv2d<span class="token punctuation">(</span>
+        <span class="token builtin">input</span><span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">,</span>
+        num_filters<span class="token operator">=</span>num_filters<span class="token punctuation">,</span>
+        filter_size<span class="token operator">=</span>filter_size<span class="token punctuation">,</span>
+        act<span class="token operator">=</span>act<span class="token punctuation">,</span>
+        main_program<span class="token operator">=</span>main_program<span class="token punctuation">,</span>
+        startup_program<span class="token operator">=</span>startup_program<span class="token punctuation">)</span>
+
+    pool_out <span class="token operator">=</span> layers<span class="token punctuation">.</span>pool2d<span class="token punctuation">(</span>
+        <span class="token builtin">input</span><span class="token operator">=</span>conv_out<span class="token punctuation">,</span>
+        pool_size<span class="token operator">=</span>pool_size<span class="token punctuation">,</span>
+        pool_type<span class="token operator">=</span>pool_type<span class="token punctuation">,</span>
+        pool_stride<span class="token operator">=</span>pool_stride<span class="token punctuation">,</span>
+        main_program<span class="token operator">=</span>main_program<span class="token punctuation">,</span>
+        startup_program<span class="token operator">=</span>startup_program<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> pool_out<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​		可以看到这里面有两个输出，conv_out是卷积输出值，pool_out是池化输出值，最后只返回池化输出的值。conv_out和pool_out分别又调用了layers.py的conv2d和pool2d，去layers.py里我们可以看到conv2d和pool2d是如何实现的：</p>
+<p>​		可以发现，这conv2d使用到了help的函数来构建一些变量：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">conv2d</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">,</span>
+           num_filters<span class="token punctuation">,</span>
+           name<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+           filter_size<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+           act<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+           groups<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+           stride<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+           padding<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+           bias_attr<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+           param_attr<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+           main_program<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+           startup_program<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    helper <span class="token operator">=</span> LayerHelper<span class="token punctuation">(</span><span class="token string">'conv2d'</span><span class="token punctuation">,</span> <span class="token operator">**</span><span class="token builtin">locals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    dtype <span class="token operator">=</span> helper<span class="token punctuation">.</span>input_dtype<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    num_channels <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">if</span> groups <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        num_filter_channels <span class="token operator">=</span> num_channels
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> num_channels <span class="token operator">%</span> groups <span class="token keyword">is</span> <span class="token keyword">not</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"num_channels must be divisible by groups."</span><span class="token punctuation">)</span>
+        num_filter_channels <span class="token operator">=</span> num_channels <span class="token operator">/</span> groups
+
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>filter_size<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        filter_size <span class="token operator">=</span> <span class="token punctuation">[</span>filter_size<span class="token punctuation">,</span> filter_size<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>stride<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        stride <span class="token operator">=</span> <span class="token punctuation">[</span>stride<span class="token punctuation">,</span> stride<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>padding<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        padding <span class="token operator">=</span> <span class="token punctuation">[</span>padding<span class="token punctuation">,</span> padding<span class="token punctuation">]</span>
+
+    input_shape <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">.</span>shape
+    filter_shape <span class="token operator">=</span> <span class="token punctuation">[</span>num_filters<span class="token punctuation">,</span> num_filter_channels<span class="token punctuation">]</span> <span class="token operator">+</span> filter_size
+
+    std <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">2.0</span> <span class="token operator">/</span> <span class="token punctuation">(</span>filter_size<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">**</span><span class="token number">2</span> <span class="token operator">*</span> num_channels<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">**</span><span class="token number">0.5</span>
+    <span class="token builtin">filter</span> <span class="token operator">=</span> helper<span class="token punctuation">.</span>create_parameter<span class="token punctuation">(</span>
+        attr<span class="token operator">=</span>helper<span class="token punctuation">.</span>param_attr<span class="token punctuation">,</span>
+        shape<span class="token operator">=</span>filter_shape<span class="token punctuation">,</span>
+        dtype<span class="token operator">=</span>dtype<span class="token punctuation">,</span>
+        initializer<span class="token operator">=</span>NormalInitializer<span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span> std<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    pre_bias <span class="token operator">=</span> helper<span class="token punctuation">.</span>create_tmp_variable<span class="token punctuation">(</span>dtype<span class="token punctuation">)</span>
+
+    helper<span class="token punctuation">.</span>append_op<span class="token punctuation">(</span>
+        <span class="token builtin">type</span><span class="token operator">=</span><span class="token string">'conv2d'</span><span class="token punctuation">,</span>
+        inputs<span class="token operator">=</span><span class="token punctuation">{</span>
+            <span class="token string">'Input'</span><span class="token punctuation">:</span> <span class="token builtin">input</span><span class="token punctuation">,</span>
+            <span class="token string">'Filter'</span><span class="token punctuation">:</span> <span class="token builtin">filter</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        outputs<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"Output"</span><span class="token punctuation">:</span> pre_bias<span class="token punctuation">}</span><span class="token punctuation">,</span>
+        attrs<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'strides'</span><span class="token punctuation">:</span> stride<span class="token punctuation">,</span>
+               <span class="token string">'paddings'</span><span class="token punctuation">:</span> padding<span class="token punctuation">,</span>
+               <span class="token string">'groups'</span><span class="token punctuation">:</span> groups<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    pre_act <span class="token operator">=</span> helper<span class="token punctuation">.</span>append_bias_op<span class="token punctuation">(</span>pre_bias<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> helper<span class="token punctuation">.</span>append_activation<span class="token punctuation">(</span>pre_act<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​		以下是另一个函数pool2d：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">pool2d</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">,</span>
+           pool_size<span class="token punctuation">,</span>
+           pool_type<span class="token punctuation">,</span>
+           pool_stride<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+           pool_padding<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+           global_pooling<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+           main_program<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+           startup_program<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> pool_type <span class="token keyword">not</span> <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">"max"</span><span class="token punctuation">,</span> <span class="token string">"avg"</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span>
+            <span class="token string">"Unknown pool_type: '%s'. It can only be 'max' or 'avg'."</span><span class="token punctuation">,</span>
+            <span class="token builtin">str</span><span class="token punctuation">(</span>pool_type<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>pool_size<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        pool_size <span class="token operator">=</span> <span class="token punctuation">[</span>pool_size<span class="token punctuation">,</span> pool_size<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>pool_stride<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        pool_stride <span class="token operator">=</span> <span class="token punctuation">[</span>pool_stride<span class="token punctuation">,</span> pool_stride<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>pool_padding<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        pool_padding <span class="token operator">=</span> <span class="token punctuation">[</span>pool_padding<span class="token punctuation">,</span> pool_padding<span class="token punctuation">]</span>
+
+    helper <span class="token operator">=</span> LayerHelper<span class="token punctuation">(</span><span class="token string">'pool2d'</span><span class="token punctuation">,</span> <span class="token operator">**</span><span class="token builtin">locals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    dtype <span class="token operator">=</span> helper<span class="token punctuation">.</span>input_dtype<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    pool_out <span class="token operator">=</span> helper<span class="token punctuation">.</span>create_tmp_variable<span class="token punctuation">(</span>dtype<span class="token punctuation">)</span>
+
+    helper<span class="token punctuation">.</span>append_op<span class="token punctuation">(</span>
+        <span class="token builtin">type</span><span class="token operator">=</span><span class="token string">"pool2d"</span><span class="token punctuation">,</span>
+        inputs<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"X"</span><span class="token punctuation">:</span> <span class="token builtin">input</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        outputs<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"Out"</span><span class="token punctuation">:</span> pool_out<span class="token punctuation">}</span><span class="token punctuation">,</span>
+        attrs<span class="token operator">=</span><span class="token punctuation">{</span>
+            <span class="token string">"poolingType"</span><span class="token punctuation">:</span> pool_type<span class="token punctuation">,</span>
+            <span class="token string">"ksize"</span><span class="token punctuation">:</span> pool_size<span class="token punctuation">,</span>
+            <span class="token string">"globalPooling"</span><span class="token punctuation">:</span> global_pooling<span class="token punctuation">,</span>
+            <span class="token string">"strides"</span><span class="token punctuation">:</span> pool_stride<span class="token punctuation">,</span>
+            <span class="token string">"paddings"</span><span class="token punctuation">:</span> pool_padding
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> pool_out<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>​		所以这个卷积过程就完成了。从上文的计算中我们可以看到，<strong>同一层的神经元可以共享卷积核</strong>，那么对于高位数据的处理将会变得非常简单。并且使用卷积核后图片的尺寸变小，方便后续计算，并且我们不需要手动去选取特征，只用设计好卷积核的尺寸，数量和滑动的步长就可以让它自己去训练了，省时又省力啊。</p>
+<h4 id="4-2-卷积核"><a href="#4-2-卷积核" class="headerlink" title="4.2 卷积核"></a>4.2 卷积核</h4><p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209130200320.png" alt="image-20230209130200320"></p>
+<p>​		那么问题来了，虽然我们知道了卷积核是如何计算的，但是为什么使用卷积核计算后分类效果要优于普通的神经网络呢？我们仔细来看一下上面计算的结果。通过第一个卷积核计算后的feature_map是一个三维数据，在第三列的绝对值最大，说明原始图片上对应的地方有一条垂直方向的特征，即像素数值变化较大；而通过第二个卷积核计算后，第三列的数值为0，第二行的数值绝对值最大，说明原始图片上对应的地方有一条水平方向的特征。</p>
+<p>​		仔细思考一下，这个时候，我们设计的两个卷积核分别能够提取，或者说检测出原始图片的特定的特征。此时我们其实就可以把卷积核就理解为特征提取器啊！现在就明白了，为什么我们只需要把图片数据灌进去，设计好卷积核的尺寸、数量和滑动的步长就可以让自动提取出图片的某些特征，从而达到分类的效果啊！</p>
+<h4 id="4-3-池化层"><a href="#4-3-池化层" class="headerlink" title="4.3 池化层"></a>4.3 池化层</h4><p>​		通过上一层2<em>2的卷积核操作后，我们将原始图像由4</em>4的尺寸变为了3 * 3的一个新的图片。池化层的主要目的是通过降采样的方式，在不影响图像质量的情况下，压缩图片，减少参数。简单来说，假设现在设定池化层采用MaxPooling，大小为2 * 2，步长为1，取每个窗口最大的数值重新，那么图片的尺寸就会由3 * 3变为2 * 2：(3-2)+1=2。从上例来看，会有如下变换：</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209141712627.png" alt="image-20230209141712627"></p>
+<p><strong>采用max_pooling的原因：</strong></p>
+<p>​		从计算方式来看，算是最简单的一种了，取max即可，但是这也引发一个思考，为什么需要Max Pooling，意义在哪里？如果我们只取最大值，那其他的值被舍弃难道就没有影响吗？不会损失这部分信息吗？如果认为这些信息是可损失的，那么是否意味着我们在进行卷积操作后仍然产生了一些不必要的冗余信息呢？</p>
+<p>​		其实从上文分析卷积核为什么有效的原因来看，每一个卷积核可以看做一个特征提取器，不同的卷积核负责提取不同的特征，我们例子中设计的第一个卷积核能够提取出“垂直”方向的特征，第二个卷积核能够提取出“水平”方向的特征，那么我们对其进行Max Pooling操作后，提取出的是真正能够识别特征的数值，其余被舍弃的数值，对于我提取特定的特征并没有特别大的帮助。那么在进行后续计算使，减小了feature map的尺寸，从而减少参数，达到减小计算量，缺不损失效果的情况。</p>
+<p>​		不过并不是所有情况Max Pooling的效果都很好，有时候有些周边信息也会对某个特定特征的识别产生一定效果，那么这个时候舍弃这部分“不重要”的信息，就不划算了。所以具体情况得具体分析，如果加了Max Pooling后效果反而变差了，不如把卷积后不加Max Pooling的结果与卷积后加了Max Pooling的结果输出对比一下，看看Max Pooling是否对卷积核提取特征起了反效果。</p>
+<h4 id="4-4-padding"><a href="#4-4-padding" class="headerlink" title="4.4 padding"></a>4.4 padding</h4><p>​		所以到现在为止，我们的图片由4 * 4，通过卷积层变为3 * 3，再通过池化层变化2 * 2，如果我们再添加层，那么图片岂不是会越变越小？这个时候我们就会引出“Zero Padding”（补零），它可以帮助我们保证每次经过卷积或池化输出后图片的大小不变，如，上述例子我们如果加入Zero Padding，再采用3*3的卷积核，那么变换后的图片尺寸与原图片尺寸相同，如下图所示：</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209142429070.png" alt="image-20230209142429070"></p>
+<p>​		通常情况下，我们希望图片做完卷积操作后保持图片大小不变，所以我们一般会选择尺寸为3 * 3的卷积核和<strong>1的zero padding</strong>，或者5 * 5的卷积核与<strong>2的zero padding</strong>，这样通过计算后，可以保留图片的原始尺寸。那么加入zero padding后的<strong>feature_map尺寸 =( width + 2 * padding_size - filter_size )/stride + 1</strong>。</p>
+<h4 id="4-5-Flatten层-amp-Fully-Connected-Layer"><a href="#4-5-Flatten层-amp-Fully-Connected-Layer" class="headerlink" title="4.5 Flatten层 &amp; Fully Connected Layer"></a>4.5 Flatten层 &amp; Fully Connected Layer</h4><p>　	到这一步，其实我们的一个完整的“卷积部分”就算完成了，如果想要叠加层数，一般也是叠加“Conv-MaxPooing”,通过不断的设计卷积核的尺寸，数量，提取更多的特征，最后识别不同类别的物体。做完Max Pooling后，<strong>我们就会把这些数据“拍平”，丢到Flatten层，然后把Flatten层的output放到full connected Layer里，采用softmax对其进行分类</strong>。</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209142845245.png" alt="image-20230209142845245"></p>
+<ul>
+<li><strong>小结</strong></li>
+</ul>
+<p>这一节我们介绍了最基本的卷积神经网络的基本层的定义，计算方式和起的作用。有几个小问题可以供大家思考一下：　</p>
+<p>1.卷积核的尺寸必须为正方形吗？可以为长方形吗？如果是长方形应该怎么计算？</p>
+<p>2.卷积核的个数如何确定？每一层的卷积核的个数都是相同的吗？ </p>
+<p>3.步长的向右和向下移动的幅度必须是一样的吗？</p>
+<p>　　如果对上面的讲解真的弄懂了的话，其实这几个问题并不难回答。下面给出我的想法，可以作为参考：</p>
+<p>　　1.卷积核的尺寸不一定非得为正方形。长方形也可以，只不过通常情况下为正方形。如果要设置为长方形，那么首先得保证这层的输出形状是整数，不能是小数。如果你的图像是边长为 28 的正方形。那么卷积层的输出就满足 [ (28 - kernel_size)/ stride ] + 1 ，这个数值得是整数才行，否则没有物理意义。譬如，你算得一个边长为 3.6 的 feature map 是没有物理意义的。 pooling 层同理。FC 层的输出形状总是满足整数，其唯一的要求就是整个训练过程中 FC 层的输入得是定长的。如果你的图像不是正方形。那么在制作数据时，可以缩放到统一大小（非正方形），再使用非正方形的 kernel_size 来使得卷积层的输出依然是整数。总之，撇开网络结果设定的好坏不谈，其本质上就是在做算术应用题：如何使得各层的<strong>输出是整数</strong>。</p>
+<p>　　2.由经验确定。通常情况下，靠近输入的卷积层，譬如第一层卷积层，会找出一些共性的特征，如手写数字识别中<strong>第一层我们设定卷积核个数为5个</strong>，<strong>一般是找出诸如”横线”、“竖线”、“斜线”等共性特征</strong>，我们称之为basic feature，经过max pooling后，在第二层卷积层，设定卷积核个数为20个，可以找出一些相对复杂的特征，如“横折”、“左半圆”、“右半圆”等特征，越往后，卷积核设定的数目越多，越能体现label的特征就越细致，就越容易分类出来，打个比方，如果你想分类出“0”的数字，你看到<img src="https://images2017.cnblogs.com/blog/853467/201710/853467-20171031231438107-1902818098.png" alt="img">这个特征，能推测是什么数字呢？只有越往后，检测识别的特征越多，试过能识别<img src="https://images2017.cnblogs.com/blog/853467/201711/853467-20171101085737623-1572944193.png" alt="img">这几个特征，那么我就能够确定这个数字是“0”。</p>
+<p>　　3.有stride_w和stride_h，后者表示的就是上下步长。如果用stride，则表示stride_h=stride_w=stride。</p>
+<h3 id="5-CNN实现手写数字识别"><a href="#5-CNN实现手写数字识别" class="headerlink" title="5.CNN实现手写数字识别"></a>5.CNN实现手写数字识别</h3><p>网络如下：注意CNN也有<strong>激活函数</strong>。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">convolutional_neural_network_org</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># first conv layer</span>
+    conv_pool_1 <span class="token operator">=</span> paddle<span class="token punctuation">.</span>networks<span class="token punctuation">.</span>simple_img_conv_pool<span class="token punctuation">(</span>
+        <span class="token builtin">input</span><span class="token operator">=</span>img<span class="token punctuation">,</span>
+        filter_size<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
+        num_filters<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>
+        num_channel<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
+        pool_size<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
+        pool_stride<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
+        act<span class="token operator">=</span>paddle<span class="token punctuation">.</span>activation<span class="token punctuation">.</span>Relu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment"># second conv layer</span>
+    conv_pool_2 <span class="token operator">=</span> paddle<span class="token punctuation">.</span>networks<span class="token punctuation">.</span>simple_img_conv_pool<span class="token punctuation">(</span>
+        <span class="token builtin">input</span><span class="token operator">=</span>conv_pool_1<span class="token punctuation">,</span>
+        filter_size<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>
+        num_filters<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span>
+        num_channel<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>
+        pool_size<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
+        pool_stride<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
+        act<span class="token operator">=</span>paddle<span class="token punctuation">.</span>activation<span class="token punctuation">.</span>Relu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment"># fully-connected layer</span>
+    predict <span class="token operator">=</span> paddle<span class="token punctuation">.</span>layer<span class="token punctuation">.</span>fc<span class="token punctuation">(</span>
+        <span class="token builtin">input</span><span class="token operator">=</span>conv_pool_2<span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> act<span class="token operator">=</span>paddle<span class="token punctuation">.</span>activation<span class="token punctuation">.</span>Softmax<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> predict<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​	　那么它的网络结构是：conv1—-&gt; conv2—-&gt;fully Connected layer。</p>
+<p>　　非常简单的网络结构。第一层我们采取的是3 * 3的正方形卷积核，个数为20个，深度为1，stride为2，pooling尺寸为2 * 2，激活函数采取的为RELU；第二层只对卷积核的尺寸、个数和深度做了些变化，分别为5 * 5，50个和20；最后链接一层全连接，设定10个label作为输出，采用Softmax函数作为分类器，输出每个label的概率。</p>
+<p><strong>补充：关于通道的问题：</strong></p>
+<p>​		为了更直观的理解，下面举个例子，<strong>卷积核的通道数核需要卷积的数据一致</strong>，最终输出的结果是4 * 4 * 1。</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209155635979.png" alt="image-20230209155635979"></p>
+<p>​		接下来，进行卷积操作，<strong>卷积核中的27个数字与分别与样本对应相乘后</strong>，再进行求和，得到第一个结果。依次进行，最终得到 4×4 的结果。</p>
+<p>​		一般 <code>channels</code> 的含义是，<strong>每个卷积层中卷积核的数量</strong>。</p>
+<h4 id="5-1卷积神经网络的反向传播："><a href="#5-1卷积神经网络的反向传播：" class="headerlink" title="5.1卷积神经网络的反向传播："></a>5.1<strong>卷积神经网络的反向传播：</strong></h4><p>​		注意：<strong>池化层没有激活函数</strong>。</p>
+<p>​		传统的神经网络是全连接形式的，如果进行反向传播，只需要由下一层对前一层不断的求偏导，即<strong>求链式偏导就可以求出每一层的误差敏感项，然后求出权重和偏置项的梯度，即可更新权重</strong>。而卷积神经网络有两个特殊的层：卷积层和池化层。池化层输出时不需要经过激活函数，<strong>是一个滑动窗口的最大值，一个常数，那么它的偏导是1</strong>。池化层相当于对上层图片做了一个压缩，这个反向求误差敏感项时与传统的反向传播方式不同。从卷积后的feature_map反向传播到前一层时，由于前向传播时是通过卷积核做卷积运算得到的feature_map，所以反向传播与传统的也不一样，<strong>需要更新卷积核的参数。下面我们介绍一下池化层和卷积层是如何做反向传播</strong>的。</p>
+<h5 id="5-1-1-卷积层实现反向传播"><a href="#5-1-1-卷积层实现反向传播" class="headerlink" title="5.1.1 卷积层实现反向传播"></a>5.1.1 卷积层实现反向传播</h5><p>​		注意，net符号代表输入，out代表输出，旁别的角标代表哪一层。</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209195306498.png" alt="image-20230209195306498"></p>
+<p>​		outi11就是i11层的输出，这里由i11来代替该符号。</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209201157922.png" alt="image-20230209201157922"></p>
+<p>感觉这个格式不太好看，建议直接参考原博客。</p>
+<p>这个公式比较重要，是4 * 4转3 * 3的格式。</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209201552126.png" alt="image-20230209201552126"></p>
+<p>然后是关于误差对于上一层网络i的偏导数，这里的相乘是神经网络中的卷积。</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209201757113.png" alt="image-20230209201757113"></p>
+<p>​		</p>
+<p><strong>关于卷积层实现反向传播，以下是我的理解：</strong></p>
+<p>​		首先，最重要的是获得导数例如总误差对前面某一层的输入的导数，所以对于最终层（如果最终层是一个3 * 3的图像，而且通过这个层直接得到误差），我们可以看作是最终误差函数<strong>E=f(net11,net12…net33)<strong>，如果我们要对之前某一层i的参数求导，必然要知道E对i中的每一个输入的导数，所以我们需要用到</strong>反向传播</strong>，逐渐把问题向前推进，我们首先处理最后一层的上一层lnet，我们不妨设<strong>E=f（lnet11…lnet44）</strong>，要求得E对lnetij的导数，我们需要知道，lnetij和netij的关系，例如下一个图：</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209201552126.png" alt="image-20230209201552126"></p>
+<p>​		这时，我们就可以使用多元函数的导数的公式来获得上一层lnetij的导数，最终的格式是这样，同时需要注意激活函数的导数：</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209201757113.png" alt="image-20230209201757113"></p>
+<p>​		所以，我们就得到了lnet和E之间的导数关系，进而，我们就可以求得lnet上一层llnet与E的关系，同理，就是构造一个类似的矩阵，只不过h矩阵变为了上一层的h矩阵（注意这里的h矩阵都是经过180度变换的），delta矩阵也是lnet层的举证，同时需要根据需求实现zero-padding。</p>
+<h5 id="5-1-2-池化层反向传播"><a href="#5-1-2-池化层反向传播" class="headerlink" title="5.1.2 池化层反向传播"></a>5.1.2 池化层反向传播</h5><pre><code>     池化层的反向传播就比较好求了，看着下面的图，左边是上一层的输出，也就是卷积层的输出feature_map，右边是池化层的输入，还是先根据前向传播，把式子都写出来，方便计算：
+</code></pre>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209202124925.png" alt="image-20230209202124925"></p>
+<p>​		　假设上一层这个滑动窗口的最大值是outi11。</p>
+<p><img src="C:\Users\master\AppData\Roaming\Typora\typora-user-images\image-20230209202202720.png" alt="image-20230209202202720"></p>
+<h4 id="5-2-手写CNN网络"><a href="#5-2-手写CNN网络" class="headerlink" title="5.2 手写CNN网络"></a>5.2 手写CNN网络</h4><p>​		详情请见博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/charlotte77/p/7783261.html%E3%80%82">https://www.cnblogs.com/charlotte77/p/7783261.html。</a></p>
+<p>​		</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">y61329697</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2023/02/10/shen-jing-wang-luo-ru-men-ji-chu/">http://example.com/2023/02/10/shen-jing-wang-luo-ru-men-ji-chu/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">y61329697</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Typora/">
+                                    <span class="chip bg-color">Typora</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">神经网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/02/10/shen-jing-wang-luo-ru-men-ji-chu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="神经网络入门基础">
+                        
+                        <span class="card-title">神经网络入门基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            关于神经网络的基础知识
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    神经网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">神经网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/01/21/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            John Doe
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/about" target="_blank">John Doe</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">8.6k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/y61329697" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:28229202103@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2822920210" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2822920210" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
